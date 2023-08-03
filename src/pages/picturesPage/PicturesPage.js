@@ -1,26 +1,54 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import PictureObject from '../../components/pictureObject/PictureObject'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Navbar from '../../components/navbar/Navbar';
 
-function PicturesPage() {
+const PictureCard = ({ id, author, image }) => {
+  return (
+    <div className="picture-card">
+      <img src={image} alt={`By ${author}`} />
+      <div className="picture-details">
+        <p>ID: {id}</p>
+        <p>Author: {author}</p>
+      </div>
+    </div>
+  );
+};
+
+const PicturesList = ({ images }) => {
+  return (
+    <div className="pictures-list">
+      {images.map(image => (
+        <PictureCard
+          key={image.id}
+          id={image.id}
+          author={image.author}
+          image={`https://picsum.photos/200/300`} // Adjust dimensions as needed
+        />
+      ))}
+    </div>
+  );
+};
+
+const PicturesPage = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://picsum.photos/v2/list?random=1&limit=30')
+      .then(response => {
+        setImages(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching images:', error);
+      });
+  }, []);
+
   return (
     <main>
-        <h2>Aquí estarán todos los objetos de la primera llamada</h2>
-        <Navbar/>
-        <ul>
-            <p>INSTRUCCIONES</p>
-            <li>Crea los componentes que necesites para imprimir una lista o tarjetas que contengan lo siguiente (deberán estar todos los objetos de la llamada a la API):</li>
-            <ol>
-                <li>El id de la imagen.</li>
-                <li>Su autor.</li>
-                <li>La fotografía (queremos ver la imagen en nuestra app, no queremos la url).</li>
-            </ol>
-            <li>Has de borrar estas instrucciones cuando lo tengas.</li>
-            <li>Los estilos los has de realizar tú misma.</li>
-        </ul>
-        <PictureObject/>
+      <Navbar />
+      <h2>Aquí estarán todos los objetos de la primera llamada</h2>
+      <PicturesList images={images} />
     </main>
-  )
-}
+  );
+};
 
-export default PicturesPage
+export default PicturesPage;

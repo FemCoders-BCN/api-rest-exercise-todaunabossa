@@ -1,22 +1,52 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function PicturePage() {
+const PictureCard = ({ id, author, image }) => {
+  return (
+    <div className="picture-card">
+      <img src={image} alt={`By ${author}`} />
+      <div className="picture-details">
+        <p>ID: {id}</p>
+        <p>Author: {author}</p>
+      </div>
+    </div>
+  );
+};
+
+const PicturesList = ({ images }) => {
+  return (
+    <div className="pictures-list">
+      {images.map(image => (
+        <PictureCard
+          key={image.id}
+          id={image.id}
+          author={image.author}
+          image={`https://picsum.photos/id/${image.id}/500/300`} // Adjust dimensions as needed
+        />
+      ))}
+    </div>
+  );
+};
+
+const PicturePage = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://picsum.photos/id/237')
+      .then(response => {
+        setImages(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching images:', error);
+      });
+  }, []);
+
   return (
     <main>
-        <h2>Aquí estará la imagen de la segunda llamada</h2>
-        <Navbar/>
-        <ul>
-            <p>INSTRUCCIONES</p>
-            <li>Crea los componentes que necesites para imprimir lo siguiente (siguiendo el ejemplo del componente PictureObject):</li>
-            <ol>
-                <li>La fotografía (queremos ver la imagen en nuestra app, no queremos la url),.</li>
-            </ol>
-            <li>Has de borrar estas instrucciones cuando lo tengas.</li>
-            <li>Los estilos los has de realizar tú misma.</li>
-        </ul>
-    </main> 
-  )
-}
+      <h2>Aquí estarán todos los objetos de la primera llamada</h2>
+      <PicturesList images={images} />
+    </main>
+  );
+};
 
 export default PicturePage

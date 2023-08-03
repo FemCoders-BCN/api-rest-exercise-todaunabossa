@@ -18,7 +18,7 @@ const Router = createBrowserRouter([
     },
     {
       path: '/image',
-      /* element: ¿qué falta aquí? */  
+      element: <PicturesPage/> 
     }
     //crea la ruta que te falta
 ]);
