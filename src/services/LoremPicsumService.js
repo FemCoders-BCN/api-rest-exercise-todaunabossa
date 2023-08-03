@@ -6,7 +6,7 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 
 export const LoremPicsumService = () => {
   const urlGetAll = '/v2/list/100/200';
-  const urlGetById = '/id/870/400/600?blur=2';
+  const urlGetById = 'https://picsum.photos/870/200/300?grayscale&blur=2';
   const urlGetGrayscale = '/500/700?grayscale?random=2';
 
   const getAll = () => {
