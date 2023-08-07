@@ -7,7 +7,7 @@ const PicturesPage = () => {
     <main>
       <Navbar />
       <h2>Aquí estarán todos los objetos de la primera llamada</h2>
-      <PictureObject/>
+      <PictureObject />
     </main>
   );
 };
