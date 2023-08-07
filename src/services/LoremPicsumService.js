@@ -4,32 +4,35 @@ axios.defaults.baseURL = 'https://picsum.photos';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 
-export const LoremPicsumService = () => {
-  const urlGetAll = '/v2/list/100/200';
-  const urlGetById = 'https://picsum.photos/870/200/300?grayscale&blur=2';
-  const urlGetGrayscale = '/500/700?grayscale?random=2';
+export const LoremPicsumService = {
+  urlGetAll: '/v2/list/',
+  urlGetById: '/id/',
+  urlGetGrayscale: '/?grayscale&random=1/',
 
-  const getAll = () => {
-    axios.get(urlGetAll)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  };
+  getAll: () => {
+    return axios.get(LoremPicsumService.urlGetAll)
+      .then((response) => response)
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      });
+  },
 
-  const getById = () => {
-    axios.get(urlGetById)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  };
+  getById: (id, size) => {
+    return axios.get(`${LoremPicsumService.urlGetById}/${id}/${size}`)
+      .then((response) => response)
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      });
+  },
 
-  const getRandomGrayscale = () => {
-    axios.get(urlGetGrayscale)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  };
-
-  return {
-    getAll,
-    getById,
-    getRandomGrayscale,
-  };
+  getRandomGrayscale: () => {
+    return axios.get(LoremPicsumService.urlGetGrayscale)
+      .then((response) => response)
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      });
+  },
 };

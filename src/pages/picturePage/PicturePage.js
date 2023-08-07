@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import PicturesPage from '../picturesPage/PicturesPage';
+import React from 'react'
+import Navbar from '../../components/navbar/Navbar'
+import PictureId from '../../components/pictureId/PictureId.js'
 
-const PicturePage = () => {
-  const [image, setImage] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://picsum.photos/870/200/300?grayscale&blur=2')
-      .then(response => {
-        setImage(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching images:', error);
-      });
-  }, []);
-
+function PicturePage() {
   return (
     <main>
-      <h2>Aquí estaria el object by ID </h2>
-      <PicturesPage image={image} />
-    </main>
-  );
-};
+        <h2>Aquí estará la imagen de la segunda llamada</h2>
+        <Navbar/>
+        <PictureId />  
+      </main> 
+  )
+}
 
 export default PicturePage
