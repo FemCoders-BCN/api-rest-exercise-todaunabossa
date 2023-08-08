@@ -18,9 +18,9 @@ function PictureObject() {
       <div className="pictures-container">
         {pictures.map(picture => (
           <div key={picture.id}>
-            <p>ID de imagen: {picture.id}</p>
+          <img src={picture.download_url} alt="" />
+            <p>ID: {picture.id}</p>
             <p>Autor: {picture.author}</p>
-            <img src={picture.download_url} alt="" />
           </div>
         ))}
       </div>

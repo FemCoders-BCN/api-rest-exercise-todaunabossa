@@ -1,15 +1,15 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import { PictureGrayScale } from '../../components/PictureGrayScale/PictureGrayScale';
+import PictureGrayScale from '../../components/pictureGrayScale/PictureGrayScale';
 
-function GrayscalePage() {
+function GrayScalePage() { 
   return (
     <main>
       <Navbar />
-      <h2>Aquí estará la imagen de la segunda llamada</h2>
+      <h2>Aquí estará la imagen en escala de grises</h2>
       <PictureGrayScale />
     </main>
   );
 };
 
-export default GrayscalePage;
+export default GrayScalePage;

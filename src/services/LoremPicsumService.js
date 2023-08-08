@@ -7,7 +7,7 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 export const LoremPicsumService = {
   urlGetAll: '/v2/list/',
   urlGetById: '/id/',
-  urlGetGrayscale: '/?grayscale&random=1/',
+  urlGetGrayscale: '/?grayscale?random=1',
 
   getAll: () => {
     return axios.get(LoremPicsumService.urlGetAll)

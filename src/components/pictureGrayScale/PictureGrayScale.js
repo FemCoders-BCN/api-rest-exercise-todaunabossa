@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react'; // Importa useState y useEffect
+import React, { useState, useEffect } from 'react';
 import { LoremPicsumService } from '../../services/LoremPicsumService';
 import './pictureGrayScale.css';
 
-export function PictureGrayScale() {
-  const [pictures, setPictures] = useState([]); // Usa la función useState para definir el estado
+function PictureGrayScale() {
+  const [picture, setPicture] = useState();
 
   useEffect(() => {
-    const service = LoremPicsumService;
+    const service = LoremPicsumService; // Asegúrate de llamar la función
 
     service.getRandomGrayscale()
-      .then(response => setPictures(response.data))
-      .catch(error => console.log(error))
+      .then(response => setPicture(response.data[0])) // Accede al primer elemento del array
+      .catch(error => console.log(error));
   }, []);
 
   return (
-    <div>
-      <div className="pictures-container">
-        {pictures.map(picture => (
-          <div key={picture.id}>
-            <p>ID de imagen: {picture.id}</p>
-            <p>Autor: {picture.author}</p>
-            <img src={picture.download_url} alt="" />
-          </div>
-        ))}
+    <div className="picture-container">
+      <div>
+        {picture && <img src={picture.download_url} alt="" />}
       </div>
     </div>
-  )
+  );
 }
+
+export default PictureGrayScale;

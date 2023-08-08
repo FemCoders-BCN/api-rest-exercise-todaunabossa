@@ -29,20 +29,17 @@ function PictureId() {
     <div>
       <div className='form-container'>  
         <form onSubmit={handleFormSubmit}>
-          <label>
-            ID: 
+          <label className='input-LabelUp'> ID:
             <input type="text" name="imageId" required />
           </label>
           <br />
-          <label>
-            Size: 
+          <label className='input-LabelDown'> Size: 
             <input type="text" name="imageSize" required />
           </label>
-          <br />
-          <br />
-
-          <button type="submit">Renderizar la imagen</button>
+          <br /><br />
+          <button type="submit">Cargar imagen</button>
         </form>
+
       </div>
       <div className="image-container">
         {cardById && <img src={cardById} style={{ width: imageSize }} alt="" />}

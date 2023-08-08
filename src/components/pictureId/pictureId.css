@@ -1,6 +1,43 @@
-.form-container {
+
+
+div.form-container {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    border: #D63CD6;
+    color: #D63CD6;
+
+}
+
+button {
+    cursor: pointer;
+    border-color: #D63CD6;
+    color: #D63CD6;
+    background-color: white;
+    height: 30px;
+    width: 115px;
+    margin-bottom: 1rem;
+    margin-left: 5vh;
+        
+}
+
+.input-LabelUp {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    
+}
+
+.input-LabelDown {
+    display: flex;
+    justify-content: space-around;
+}
+input {
+    width: 95px;
+}
+
+div.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
 
 }

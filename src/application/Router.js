@@ -3,6 +3,7 @@ import App from '../App';
 import PicturesPage from '../pages/picturesPage/PicturesPage';
 import FavoritesPage from '../pages/favoritesPage/FavoritesPage';
 import PicturePage from '../pages/picturePage/PicturePage';
+import GrayscalePage from '../pages/grayscalePage/GrayscalePage';
 
 const Router = createBrowserRouter([
     {
@@ -20,8 +21,12 @@ const Router = createBrowserRouter([
     {
       path: '/image',
       element: <PicturePage /> 
+    },
+    {
+      path: '/grayscale',
+      element: <GrayscalePage /> 
     }
-    //crea la ruta que te falta
+    
 ]);
 
 export default Router;
