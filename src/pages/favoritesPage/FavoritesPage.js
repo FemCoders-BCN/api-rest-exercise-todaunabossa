@@ -1,11 +1,16 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
+import React from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Favorites from '../../components/favorites/Favorites';
+
+
+
 
 function FavoritesPage() {
   return (
     <main>
         <h2>Aquí estará la página principal donde guardarás tus objetos favoritos</h2>
         <Navbar/>
+        <Favorites />
         <ul>
             <p>INSTRUCCIONES</p>
             <li>Crea un servicio llamado FavoriteService.js siguiendo el ejemplo de LoremPicsumService.js, que contenga toda la lógica que necesites para realizar el CRUD, usando axios, tu endpoint será el que te proporcione el json-server.</li>
