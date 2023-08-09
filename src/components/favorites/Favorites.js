@@ -8,19 +8,19 @@ function Favorites() {
   const [pictures, setPictures] = useState([]);
 
   useEffect(() => {
-    const localhost = FavoriteService(); 
+    const localDb = FavoriteService; 
     
-    localhost.getFavorites()
+    localDb.getFavorites()
       .then(response => setPictures(response.data))
       .catch(error => console.log(error))
   }, []);
 
   return (
     <div>
-      <div className="object-container">
+      <div className="favorites-container">
         {pictures.map(picture => (
           <div key={picture.id}>
-          <img  id='object-picture' src={pictures} alt="" />
+          <img  id='favorites-pictures' src={pictures} alt="Imagenes favoritas" />
             <p>ID: {picture.id}</p>
             <p>Autor: {picture.author}</p>
           </div>

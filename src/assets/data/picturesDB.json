@@ -1,5 +1,6 @@
 {
-    "pictures": [{
+    "pictures": [
+        {
             "id": 0,
             "author": "Alejandro Escamilla",
             "download_url": "https://picsum.photos/id/0/5000/3333"
