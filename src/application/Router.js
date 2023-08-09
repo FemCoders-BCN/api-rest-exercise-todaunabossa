@@ -3,7 +3,9 @@ import App from '../App';
 import PicturesPage from '../pages/picturesPage/PicturesPage';
 import FavoritesPage from '../pages/favoritesPage/FavoritesPage';
 import PicturePage from '../pages/picturePage/PicturePage';
-import GrayscalePage from '../pages/grayscalePage/GrayscalePage';
+import GrayScalePage from '../pages/grayScalePage/GrayScalePage';
+
+
 
 const Router = createBrowserRouter([
     {
@@ -24,7 +26,7 @@ const Router = createBrowserRouter([
     },
     {
       path: '/grayscale',
-      element: <GrayscalePage /> 
+      element: <GrayScalePage /> 
     }
     
 ]);

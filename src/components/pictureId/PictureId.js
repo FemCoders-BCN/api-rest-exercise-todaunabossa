@@ -41,7 +41,7 @@ function PictureId() {
         </form>
 
       </div>
-      <div className="image-container">
+      <div className='picture-container'>
         {cardById && <img src={cardById} style={{ width: imageSize }} alt="" />}
       </div>
     </div>

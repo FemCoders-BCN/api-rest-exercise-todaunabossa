@@ -35,9 +35,8 @@ input {
     width: 95px;
 }
 
-div.image-container {
+.picture-container {
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
-
+    margin-left: 30px;
 }

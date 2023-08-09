@@ -15,10 +15,10 @@ function PictureObject() {
 
   return (
     <div>
-      <div className="pictures-container">
+      <div className="object-container">
         {pictures.map(picture => (
           <div key={picture.id}>
-          <img src={picture.download_url} alt="" />
+          <img  id='object-picture' src={picture.download_url} alt="" />
             <p>ID: {picture.id}</p>
             <p>Autor: {picture.author}</p>
           </div>
