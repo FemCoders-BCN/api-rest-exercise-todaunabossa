@@ -6,7 +6,7 @@ function PicturePage() {
   return (
     <main>
       <Navbar />
-      <h2>Aquí estará la imagen de la segunda llamada</h2>
+      <h2>Aquí estará la imagen de la segunda llamada:</h2>
       <PictureId />
     </main>
   );
