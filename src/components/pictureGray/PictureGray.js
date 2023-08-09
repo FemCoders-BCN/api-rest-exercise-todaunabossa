@@ -9,7 +9,7 @@ function PictureGray() {
     const service = LoremPicsumService;
 
     service.getGrayScale()
-      .then(response => setPicture(response.data[0]))
+      .then(response => setPicture(response.data['']))
       .catch(error => console.log(error));
   }, []);
 
@@ -22,7 +22,7 @@ function PictureGray() {
       <div className="grayscale-container">
         <p>ID: {picture.id}</p>
         <p>Autor: {picture.author}</p>
-        <img id='pictureGray-image' src={picture.download_url} alt="" />     
+        <img id='pictureGray-image' src={picture} alt="Imagen aleatoria" />     
       </div>
     </div>
   )

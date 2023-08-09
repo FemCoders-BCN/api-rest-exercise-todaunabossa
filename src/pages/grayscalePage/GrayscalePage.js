@@ -6,7 +6,7 @@ function GrayScalePage() {
   return (
     <main>
       <Navbar />
-      <h2>Aquí estará la imagen random en escala de grises</h2>
+      <h2>Aquí estará la imagen de la tercer llamada, random y en escala de grises</h2>
       <PictureGray />
     </main>
   );
