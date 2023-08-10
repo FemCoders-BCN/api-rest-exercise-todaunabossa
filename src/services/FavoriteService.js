@@ -5,12 +5,12 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 
 export const FavoriteService = {
-  urlGetFavorites: '/pictures/',
+  urlGetFavorites: '/favorites/',
 
   getFavorites: () => {
     return axios.get(FavoriteService.urlGetFavorites)
-      .then((response) => response.data)
-      .catch((error) => {console.error('Error en getFavorites:', error);
+      .then((response) => response)
+      .catch((error) => {console.log(error);
         throw error;
       });
   },

@@ -5,8 +5,8 @@ import PictureObject from '../../components/pictureObject/PictureObject'
 const PicturesPage = () => {
   return (
     <main>
+      <h2>Aquí estarán las 30 objetos de la primera llamada</h2>
       <Navbar />
-      <h2>Aquí estarán las 30 objetos de la primera llamada:</h2>
       <PictureObject />
     </main>
   );
