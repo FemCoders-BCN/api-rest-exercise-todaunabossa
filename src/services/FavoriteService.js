@@ -6,10 +6,10 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 
 
 export const FavoriteService = {
-  urlGetFavorites: '/pictures/',
+  baseLocalURL: '/pictures/',
 
   getFavorites: () => {
-    return axios.get(FavoriteService.urlGetFavorites)
+    return axios.get(FavoriteService.baseLocalURL)
       .then((response) => response)
       .catch((error) => {console.log(error);
         throw error;

@@ -11,9 +11,9 @@ function Favorites() {
 
   const loadFavorites = async () => {
     try {
-      const response = await FavoriteService.getFavorites();
-      const favoritePictures = response.data.pictures.filter(picture => picture.isFavorite);
-      setFavorites(favoritePictures);
+      const response = await FavoriteService.download_url;
+      setFavorites(response.data);
+      console.log(response.FavoriteService);
     } catch (error) {
       console.log(error);
     }
@@ -35,33 +35,3 @@ function Favorites() {
 }
 
 export default Favorites;
-
-
-
-
-/*function Favorites() {
-  const [pictures, setPictures] = useState([]);
-
-  useEffect(() => {
-    const localDb = FavoriteService; 
-    
-    localDb.getFavorites()
-      .then(response => setPictures(response.data))
-      .catch(error => console.log(error))
-  }, []);
-
-  return (
-    <div>
-      <div className="favorites-container">
-        {pictures.map(picture => (
-          <div key={picture.id}>
-            <img id='favorites-pictures' src={picture.url} alt="Imagen favorita" />
-            <p>ID: {picture.id}</p>
-            <p>Autor: {picture.author}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-export default Favorites;*/

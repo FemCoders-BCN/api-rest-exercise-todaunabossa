@@ -8,8 +8,13 @@ div.object-container {
     column-gap: 2rem;
     flex-wrap: wrap;   
 
+
 }
 
+#object-picture{
+    width: 300px;
+    height: 200px;
+}
 img {
     width: 300px;
     height: 200px;

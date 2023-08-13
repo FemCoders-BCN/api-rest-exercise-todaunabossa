@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { LoremPicsumService } from '../../services/LoremPicsumService';
 import './pictureObject.css';
-
 
 function PictureObject() {
   const [pictures, setPictures] = useState(['']);
@@ -15,15 +15,32 @@ function PictureObject() {
       .catch(error => console.log(error));
   }, []);
 
-  // Función para agregar o quitar un elemento de la lista de favoritos
   const toggleFavorite = (picture) => {
     if (favorites.some(favorite => favorite.id === picture.id)) {
-      // Si la imagen ya es favorita, la quitamos de la lista
-      setFavorites(prevFavorites => prevFavorites.filter(p => p.id !== picture.id));
+      removeFromFavorites(picture.id);
     } else {
-      // Si la imagen no es favorita, la agregamos a la lista
-      setFavorites(prevFavorites => [...prevFavorites, picture]);
+      addToFavorites(picture);
     }
+  };
+
+  const addToFavorites = (picture) => {
+    setFavorites(prevFavorites => [...prevFavorites, picture]);
+
+    axios.post('http://localhost:5000/pictures', picture)
+      .then(response => {
+        console.log('Elemento guardado como favorito:', response.data);
+      })
+      .catch(error => {
+        console.log('Error al guardar el elemento como favorito:', error);
+      });
+  };
+
+  const removeFromFavorites = (pictureId) => {
+    setFavorites(prevFavorites => prevFavorites.filter(picture => picture.id !== pictureId));
+     axios.delete(`http://localhost:5000/pictures/${pictureId}`)
+      .then(response => {console.log('Elemento quitado de favoritos:', response.data);
+      }).catch(error => {console.log('Error al quitar el elemento de favoritos:', error);
+      });
   };
 
   return (
@@ -35,7 +52,6 @@ function PictureObject() {
             <p>ID: {picture.id}</p>
             <p>Autor: {picture.author}</p>
 
-            {/* Botón para agregar/quitar favorito */}
             {favorites.some(favorite => favorite.id === picture.id) ? (
               <button className='add-Favorites' onClick={() => toggleFavorite(picture)}>Quitar de favoritos</button>
             ) : (
