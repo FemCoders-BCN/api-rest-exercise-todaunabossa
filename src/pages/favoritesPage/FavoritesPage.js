@@ -8,7 +8,7 @@ function FavoritesPage() {
         <h2>Aquí estaran los objetos guardados como favoritos <br/>
         provenientes del CRUD local json-server:</h2>
         <Navbar/>
-        <Favorites />
+        <Favorites favorites={Favorites} />
 
         <ul>
             <p>INSTRUCCIONES</p>
