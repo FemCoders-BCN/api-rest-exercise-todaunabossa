@@ -3,7 +3,7 @@ import { FavoriteService } from '../../services/FavoriteService';
 import './favorites.css';
 
 function Favorites() {
-  const [favorites, setFavorites] = useState(['']);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     loadFavorites();
@@ -11,9 +11,9 @@ function Favorites() {
 
   const loadFavorites = async () => {
     try {
-      const response = await FavoriteService.download_url;
-      setFavorites(response.data);
-      console.log(response.FavoriteService);
+      const response = await fetch('http://localhost:5000/pictures');
+      const data = await response.json();
+      setFavorites(data);
     } catch (error) {
       console.log(error);
     }
