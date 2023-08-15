@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FavoriteService } from '../../services/FavoriteService';
 import './favorites.css';
 
 function Favorites() {

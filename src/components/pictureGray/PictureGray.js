@@ -3,7 +3,7 @@ import { LoremPicsumService } from '../../services/LoremPicsumService';
 import './pictureGray.css';
 
 function PictureGray() {
-  const [picture, setPicture] = useState('');
+  const [picture, setPicture] = useState();
 
   useEffect(() => {
     const service = LoremPicsumService;
