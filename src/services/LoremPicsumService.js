@@ -7,7 +7,7 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 export const LoremPicsumService = {
   urlGetAll: '/v2/list/',
   urlGetById: '/id/',
-  urlGetGrayScale: '/grayscale/',
+  urlGetGrayScale: '?grayscale/',
 
   getAll: () => {
     return axios.get(LoremPicsumService.urlGetAll)
@@ -27,7 +27,7 @@ export const LoremPicsumService = {
 
   getGrayScale: (id, size) => {
     const grayscaleParam = "?grayscale";
-    const url = `${LoremPicsumService.urlGetById}/${id, 23}/${size, 300}/${grayscaleParam}`;
+    const url = `${LoremPicsumService.urlGetGrayScale}/${id, 23}/${size, 300}/${grayscaleParam}`;
   
     return axios.get(url)
       .then((response) => response)
