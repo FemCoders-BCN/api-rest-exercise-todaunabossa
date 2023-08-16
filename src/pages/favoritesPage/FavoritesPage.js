@@ -4,6 +4,7 @@ import Favorites from '../../components/favorites/Favorites';
 
 function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
+  const [newAuthorName, setNewAuthorName] = useState('');
 
   useEffect(() => {
     const loadFavorites = async () => {
@@ -36,11 +37,37 @@ function FavoritesPage() {
     }
   };
 
+  const editFavorite = async (pictureId, newAuthorName) => {
+    try {
+      const response = await fetch(`http://localhost:5000/pictures/${pictureId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ author: newAuthorName })
+      });
+
+      if (response.ok) {
+        const updatedFavorites = favorites.map((favorite) => {
+          if (favorite.id === pictureId) {
+            return { ...favorite, author: newAuthorName };
+          }
+          return favorite;
+        });
+        setFavorites(updatedFavorites);
+      } else {
+        console.log('Error al editar el autor de la imagen');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <main>
       <h2>Aquí estarán los objetos guardados como favoritos provenientes del CRUD local json-server:</h2>
       <Navbar />
-      <Favorites favorites={favorites} toggleFavorite={toggleFavorite} />
+      <Favorites favorites={favorites} toggleFavorite={toggleFavorite} editFavorite={editFavorite} newAuthorName={newAuthorName} setNewAuthorName={setNewAuthorName} />
     </main>
   );
 }

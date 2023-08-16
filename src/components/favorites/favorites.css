@@ -10,3 +10,8 @@ div.favorites-container {
     height: 200px;
     
 }
+
+input.edit-Input {
+    display: flex;
+    margin-left: 50vh;
+}
