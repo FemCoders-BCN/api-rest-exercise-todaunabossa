@@ -1,4 +1,5 @@
 import React from 'react';
+import './pictureObject.css';
 
 function PictureObject({ picture, isFavorite, toggleFavorite }) {
   return (

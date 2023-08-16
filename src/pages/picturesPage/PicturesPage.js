@@ -3,7 +3,7 @@ import Navbar from '../../components/navbar/Navbar';
 import PictureObject from '../../components/pictureObject/PictureObject';
 import axios from 'axios';
 import { LoremPicsumService } from '../../services/LoremPicsumService';
-import '../../components/pictureObject/pictureObject.css'
+import './picturesPage.css'
 
 function PicturesPage() {
   const [pictures, setPictures] = useState([]);
@@ -12,7 +12,7 @@ function PicturesPage() {
   useEffect(() => {
     const fetchPictures = async () => {
       try {
-        const response = await axios.get(LoremPicsumService.urlGetAll); // Actualiza la URL
+        const response = await axios.get(LoremPicsumService.urlGetAll); 
         setPictures(response.data);
       } catch (error) {
         console.log('Error al obtener las imágenes:', error);

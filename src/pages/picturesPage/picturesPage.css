@@ -1,0 +1,9 @@
+
+
+div.pictures-container {
+    display: flex;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    flex-wrap: wrap; 
+    
+}
