@@ -1,14 +1,12 @@
 div.favorites-container {
     width: 200px;
-    height: 100px;
     display: flex;
     flex-direction: column;
     margin-left: 80vh;
   
 }
 
-img#favorites-pictures {
-    width: 300;
+#favorites-pictures {
     height: 200px;
     
 }

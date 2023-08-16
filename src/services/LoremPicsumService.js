@@ -7,12 +7,13 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 export const LoremPicsumService = {
   urlGetAll: '/v2/list/',
   urlGetById: '/id/',
-  urlGetGrayScale: '?grayscale/',
+  urlGetRandom: '/300?random/',
 
   getAll: () => {
     return axios.get(LoremPicsumService.urlGetAll)
       .then((response) => response)
-      .catch((error) => {console.log(error);
+      .catch((error) => {
+        console.log(error);
         throw error;
       });
   },
@@ -20,15 +21,15 @@ export const LoremPicsumService = {
   getById: (id, size) => {
     return axios.get(`${LoremPicsumService.urlGetById}/${id}/${size}`)
       .then((response) => response)
-      .catch((error) => {console.log(error);
+      .catch((error) => {
+        console.log(error);
         throw error;
       });
   },
 
-  getGrayScale: (id, size) => {
-    const grayscaleParam = "?grayscale";
-    const url = `${LoremPicsumService.urlGetGrayScale}/${id, 23}/${size, 300}/${grayscaleParam}`;
-  
+  getRandomGrayScale: () => {
+    const url = `${LoremPicsumService.urlGetRandom}&grayscale`;
+    
     return axios.get(url)
       .then((response) => response)
       .catch((error) => {
@@ -36,4 +37,4 @@ export const LoremPicsumService = {
         throw error;
       });
   },
-};
+}    

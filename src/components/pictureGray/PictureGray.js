@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { LoremPicsumService } from '../../services/LoremPicsumService';
+import React from 'react';
 import './pictureGray.css';
 
-function PictureGray() {
-  const [picture, setPicture] = useState();
-
-  useEffect(() => {
-    const service = LoremPicsumService;
-
-    service.getGrayScale()
-      .then(response => setPicture(response.data['']))
-      .catch(error => console.log(error));
-  }, []);
-
-  if (!picture) {
-    return <p>Cargando...</p>;
-  }
-
+function PictureGray({ picture }) {
   return (
     <div>
       <div className="grayscale-container">
         <p>ID: {picture.id}</p>
         <p>Autor: {picture.author}</p>
-        <img id='pictureGray-image' src={picture} alt="" />     
+        <img id='pictureGray-image' src={picture.download_url} alt="" />     
       </div>
     </div>
-  )
+  );
 }
 
 export default PictureGray;
+
